@@ -1,0 +1,20 @@
+version: '3'
+services:
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - /my_app/node_modules
+      - ./client:/my_app
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile.dev
+    ports:
+      - "4000:4000"
+    volumes:
+      - /my_app/node_modules
+      - ./server:/my_app
